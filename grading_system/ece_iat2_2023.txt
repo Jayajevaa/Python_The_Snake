@@ -1,0 +1,13 @@
+CLASS :	3A
+   NAME     |        GRADING           |	AVERAGE MARKS
+abhi       	: needs heavy improvement	         9
+raks       	: average                	         69
+
+-----------------------------------------------------------
+class break
+-----------------------------------------------------------
+
+CLASS :	3B
+   NAME     |        GRADING           |	AVERAGE MARKS
+abhi       	: needs heavy improvement	         9
+raks       	: average                	         69

@@ -1,0 +1,209 @@
+<!doctype html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<title>HANGMAN</title>
+<script type="text/javascript" src="brython.js"></script>
+<script type="text/javascript" src="brython_stdlib.js"></script>
+</head>
+
+
+
+
+
+<body onload="brython()">
+    
+    <marquee class="marq" direction = "left" loop="" >
+        HANGMAN
+        <style>
+        .marq {
+            margin-top:100px  ;
+            font-size: 20px;
+        }
+        </style>
+    </marquee>
+    
+    
+
+    <style>
+        body {
+  background-image: url('hangman_2_image_bg.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+    </style>
+    <input type ="button" class="button" value="PLAY AGAIN" onClick="window.location.reload(true)" >
+    <style> 
+        .button { 
+        font-size: 20px;
+        margin-top:450px;
+        margin-left:250px;
+        } 
+        </style>
+</body>
+<script type="text/python">
+
+from browser import document,alert,console
+
+import random #importing the random module
+
+
+
+
+alert("Hey there\nWelcome back")
+
+alert( ''' Lets Play \n  HANGMAN''')
+
+
+game=int(input("-------MENU-------\nNEW GAME PRESS 1\nREAD RULES PRESS 2\nEXIT GAME PRESS 3\n---------------------"))
+
+shit=['snapshot', 'public', 'campus', 'midwest', 'himself', 'chipmunk', 'talcum', 'invest', 'shellfish', 'dustpan', 'bandit', 'banquet','ambulence','patience','pencil','android','biggboss', 'aardvark','baboon','camel','lion','tiger']
+fruits=['apple', 'mango','orange','kiwi','papaya','banana']
+animals=['lion','tiger','camel','dog','cat','elephant','chipmunk']
+rules='\n------RULES------\nONE WORD WILL BE CHOSEN BY THE COMPUTER IN RANDOM\nYOU WILL BE ASKED TO ENTER A LETTER THAT U GUESS IS THERE IN THE WORD\nIF THE LETTER IS THERE IN THE WORD YOU GO FURTHER\nELSE ONE LIFE WILL BE TAKEN AWAY FROM YOU\nYOU HAVE 6 LIFES TO SAVE YOUR MAN FROM HANGING\nBEST OF LUCK\n'
+
+
+stages = ['''
+  +---+
+  |   |
+ O   |
+ /|\  |
+ / \  |
+      |
+=========
+''', '''
+  +---+
+  |   |
+ O   |
+ /|\  |
+ /    |
+      |
+=========
+''', '''
+  +---+
+  |   |
+ O   |
+ /|\  |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+ O   |
+ /|   |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+ O   |
+  |   |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+ O   |
+      |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+      |
+      |
+      |
+      |
+=========
+''']
+if game==1 or game==2:
+
+    if game==2:
+        alert(rules)
+        
+    
+    level=int(input("----options----\nchoose your level of difficulty :\nfruits press 1\nanimals press 2\nasian level press 3\nwant us to make even better levels press 4\n---------------\n"))
+    if level == 1 or level==2 or level==3:
+        if level==1:
+            word_list=fruits
+        elif level==2:
+            word_list=animals
+        else:
+            word_list=shit
+
+
+
+        word=random.choice(word_list)
+
+        
+
+
+        word_len=len(word)
+
+
+        display=[]
+        for letter in word:
+            display+='_'
+
+
+        end_of_game=False
+        lifes=6
+
+        
+        
+        while not end_of_game:
+
+            guess=input(stages[lifes]+' '.join(display)+'  guess a letter and enter :\n').lower()
+
+            if guess in display:
+                alert("you have already guessed this letter"+ guess)
+
+
+            for i in range(0,word_len):
+                if word[i]== guess:
+                    display[i]=word[i]
+                 
+                
+        
+            
+            if '_' not in display:
+                end_of_game=True
+                
+                
+                
+                alert("\nThe word is : "+word+"\n\n----------\nYOU WON\n----------")
+                break
+            
+            
+            if guess not in word:
+                lifes-=1
+            
+                
+               
+            
+            if lifes==0:
+                alert( "The correct word is : "+word +"\n\n----------\nYOU LOST\n----------")
+        
+                end_of_game=True
+                break
+            
+    else:        
+        
+    
+        
+        sugg=input("the level entered is not available\n\nbut will be taken into consideration and added in the next update\n\nplease specify the list name you would like to have\n")
+       
+        
+
+else:
+    
+
+    alert("Thank you for playing the game\nsee ya")
+
+</script>
+</html>

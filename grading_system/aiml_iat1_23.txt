@@ -1,0 +1,14 @@
+CLASS :	A
+   NAME     |        GRADING           |	AVERAGE MARKS
+abhi       	: average                	         68
+deek       	: excellent              	         100
+
+-----------------------------------------------------------
+class break
+-----------------------------------------------------------
+
+CLASS :	B
+   NAME     |        GRADING           |	AVERAGE MARKS
+abhi       	: average                	         68
+deek       	: excellent              	         100
+jj         	: needs heavy improvement	         13
